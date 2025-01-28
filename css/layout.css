@@ -1,0 +1,39 @@
+/* Main Layout Styles */
+body {
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    font-family: var(--font-primary);
+  }
+  
+  section {
+    padding: 100px 0;
+  }
+  
+  .content {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .title {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .title span {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--text-color);
+    position: relative;
+  }
+  
+  .title span::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--secondary-color);
+  }
