@@ -1,0 +1,9 @@
+:root {
+    --primary-color: #2d3436;
+    --secondary-color: #0984e3;
+    --text-color: #dfe6e9;
+    --accent-color: #74b9ff;
+    --dark-bg: #1a1a1a;
+    --font-primary: 'Poppins', sans-serif;
+    --font-secondary: 'Ubuntu', sans-serif;
+  }

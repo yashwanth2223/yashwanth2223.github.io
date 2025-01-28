@@ -1,0 +1,63 @@
+/* Navigation Styles */
+nav {
+    position: fixed;
+    width: 100%;
+    padding: 20px 0;
+    z-index: 998;
+    transition: all 0.3s ease;
+    background: rgba(45, 52, 54, 0.9);
+  }
+  
+  nav.sticky {
+    background: var(--secondary-color);
+    padding: 13px 0;
+  }
+  
+  .navbar {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo a {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+  }
+  
+  nav.sticky .logo a {
+    color: var(--text-color);
+  }
+  
+  .menu {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  
+  .menu a {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .menu a:hover {
+    color: var(--accent-color);
+  }
+  
+  .media-icons {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .media-icons a {
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+  }
+  
+  .media-icons a:hover {
+    color: var(--accent-color);
+  }

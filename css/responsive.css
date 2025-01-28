@@ -1,0 +1,28 @@
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-details {
+      grid-template-columns: 1fr;
+    }
+    
+    .text-two {
+      font-size: 2.5rem;
+    }
+    
+    .text-three {
+      font-size: 1.5rem;
+    }
+    
+    .menu {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .content {
+      width: 95%;
+    }
+    
+    .skills-grid {
+      grid-template-columns: 1fr;
+    }
+  }
