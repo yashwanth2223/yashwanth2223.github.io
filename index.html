@@ -1,372 +1,428 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Yashwanth's portfolio</title>
-    <link rel="stylesheet" href="css/layout.css" />
-    <link rel="stylesheet" href="css/navigation.css" />
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/responsive.css" />
-    <link rel="stylesheet" href="css/section.css" />
-    <link rel="stylesheet" href="css/variables.css" />
-    <link rel="stylesheet" href="css/projects.css">
+<html lang="en" oncontextmenu="return false">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Security Meta Tags - Modified to be less restrictive -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval' data: blob:; script-src * 'unsafe-inline' 'unsafe-eval'; style-src * 'unsafe-inline';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="no-referrer-when-downgrade">
     
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
-  <body>
-    <!-- Navigation -->
-    <nav>
-      <div class="navbar">
-        <div class="logo"><a href="#home">{KY}</a></div>
-        <ul class="menu">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#education">Education</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#certifications">Certifications</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
+    <!-- Remove overly restrictive cache controls -->
+    <meta http-equiv="Cache-Control" content="public, max-age=3600">
+    
+    <title>Welcome - Yashwanth's Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+        }
 
-    <!-- Home Section -->
-    <section class="home" id="home">
-      <div class="home-content">
-        <div class="text">
-          <div class="text-one">Hello,</div>
-          <div class="text-two">I'm Yashwanth</div>
-          <div class="text-three">Data Science Undergraduate</div>
-          <div class="text-four">From Hyderabad...</div>
-        </div>
-      </div>
-    </section>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #000;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            color: white;
+        }
 
-    <!-- About Section -->
-    <section class="about" id="about">
-      <div class="content">
-        <div class="title"><span>About Me</span></div>
-        <div class="about-details">
-          <div class="left">
-            <img src="Images/p1.jpg" alt="profile" />
-          </div>
-          <div class="right">
-            <div class="topic">
-              I am a Data Scientist Student based in Hyderabad, Telangana.
-              Since 2022 My Journey of Engineering has started in the Koneru Lakshamaiah University
-              Verbally known as KL University in Vijayawada.
-              I came to know regarding many things within this time-limit till now.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+        /* Loader Styles */
+        .loader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
 
-    <!-- Add this section after the About section and before the Skills section -->
-<section class="education" id="education">
-  <div class="content">
-    <div class="title"><span>Education</span></div>
-    <div class="education-timeline">
-      <div class="education-card">
-        <div class="edu-year">2022 - 2026</div>
-        <div class="edu-details">
-          <h3>Computer Science and Engineering</h3>
-          <p>KL University</p>
+        .loader {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            transform-style: preserve-3d;
+            perspective: 500px;
+        }
+
+        .loader-cube {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid #fff;
+            animation: loaderAnim 4s ease-in-out forwards;
+            transform-style: preserve-3d;
+        }
+
+        .loader-cube:nth-child(1) { animation-delay: 0s; border-color: #FF4D4D; }
+        .loader-cube:nth-child(2) { animation-delay: 0.5s; border-color: #FF9933; }
+        .loader-cube:nth-child(3) { animation-delay: 1s; border-color: #FFFF66; }
+
+        @keyframes loaderAnim {
+            0% {
+                transform: rotateX(0deg) rotateY(0deg);
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                transform: rotateX(360deg) rotateY(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 1s ease;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
+            overflow: hidden;
+        }
+
+        .background::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            animation: backgroundMove 60s linear infinite;
+        }
+
+        @keyframes backgroundMove {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            width: 100%;
+            padding: 20px;
+            transition: all 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+        }
+
+        .animated-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 8.5rem;
+            font-weight: 900;
+            position: relative;
+            opacity: 0;
+            transform: scale(0.5);
+            animation: textReveal 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+            animation-delay: 4.5s;
+            text-shadow: 0 0 20px rgba(255,255,255,0.2);
+            letter-spacing: 0.1em;
+            margin: 0 auto;
+            max-width: 100%;
+        }
+
+        .animated-text::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, 
+                rgba(255,77,77,0.2), 
+                rgba(255,153,51,0.2), 
+                rgba(255,255,102,0.2), 
+                rgba(153,255,102,0.2), 
+                rgba(102,255,255,0.2));
+            filter: blur(20px);
+            z-index: -1;
+            animation: gradientMove 5s linear infinite;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .animated-text span {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(20px) rotateX(-90deg);
+            transform-origin: top;
+            animation: letterReveal 0.8s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+            background: linear-gradient(to bottom, #fff, #a0a0a0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 15px rgba(255,255,255,0.3));
+            padding: 0 0.02em;
+        }
+
+        .animated-text span:nth-child(1) { animation-delay: 5s; }
+        .animated-text span:nth-child(2) { animation-delay: 5.2s; }
+        .animated-text span:nth-child(3) { animation-delay: 5.4s; }
+        .animated-text span:nth-child(4) { animation-delay: 5.6s; }
+        .animated-text span:nth-child(5) { animation-delay: 5.8s; }
+
+        .know-more-btn {
+            margin-top: 3rem;
+            padding: 1.2rem 2.5rem;
+            font-size: 1.2rem;
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: buttonReveal 0.8s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+            animation-delay: 6.5s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .know-more-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 150%;
+            height: 150%;
+            background: rgba(255,255,255,0.1);
+            transform: translate(-50%, -50%) rotate(45deg) translateY(100%);
+            transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        .know-more-btn:hover {
+            border-color: rgba(255,255,255,1);
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(255,255,255,0.2);
+        }
+
+        .know-more-btn:hover::before {
+            transform: translate(-50%, -50%) rotate(45deg) translateY(-100%);
+        }
+
+        @keyframes textReveal {
+            0% { opacity: 0; transform: scale(0.5); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes letterReveal {
+            0% { opacity: 0; transform: translateY(20px) rotateX(-90deg); }
+            100% { opacity: 1; transform: translateY(0) rotateX(0); }
+        }
+
+        @keyframes buttonReveal {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .animated-text {
+                font-size: 4rem;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .animated-text {
+                font-size: 6rem;
+            }
+        }
+
+        /* Page Transition Effects */
+        .page-transition {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: 9999;
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.7s cubic-bezier(0.7, 0, 0.3, 1);
+        }
+
+        .transition-active {
+            transform: scaleY(1);
+        }
+
+        .fade-out {
+            opacity: 0 !important;
+            transform: translateY(-20px) !important;
+        }
+    </style>
+</head>
+<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+    <!-- Add transition overlay -->
+    <div class="page-transition"></div>
+
+    <!-- Loader -->
+    <div class="loader-container">
+        <div class="loader">
+            <div class="loader-cube"></div>
+            <div class="loader-cube"></div>
+            <div class="loader-cube"></div>
         </div>
-      </div>
-      <div class="education-card">
-        <div class="edu-year">2020 - 2022</div>
-        <div class="edu-details">
-          <h3>Intermediate</h3>
-          <p>Narayana Junior College</p>
-        </div>
-      </div>
-      <div class="education-card">
-        <div class="edu-year">2020</div>
-        <div class="edu-details">
-          <h3>School Education</h3>
-          <p>Narayana E-techno School</p>
-        </div>
-      </div>
     </div>
-  </div>
-</section>
 
-
-
-    <!-- Skills Section -->
-    <section class="skills" id="skills">
-      <div class="content">
-        <div class="title"><span>My Skills</span></div>
-        <div class="skills-grid">
-          <div class="skill-category">
-            <h3><i class="fas fa-code"></i> Programming Languages</h3>
-            <ul>
-              <li><i class="fab fa-java"></i> Java</li>
-              <li><i class="fab fa-python"></i> Python</li>
-              <li><i class="fas fa-copyright"></i> C</li>
-            </ul>
-          </div>
-          <div class="skill-category">
-            <h3><i class="fas fa-layer-group"></i> Frameworks</h3>
-            <ul>
-              <li><i class="fab fa-react"></i> React</li>
-              <li><i class="fab fa-node-js"></i> Node.js</li>
-              <li><i class="fab fa-python"></i> Django</li>
-            </ul>
-          </div>
-          <div class="skill-category">
-            <h3><i class="fas fa-database"></i> Full Stack</h3>
-            <ul>
-              <li><i class="fas fa-server"></i> MERN Stack</li>
-              <li><i class="fab fa-java"></i> Spring Boot</li>
-            </ul>
-          </div>
-          <div class="skill-category">
-            <h3><i class="fas fa-paint-brush"></i> Design</h3>
-            <ul>
-              <li><i class="fas fa-pencil-ruler"></i> UX Design</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Add this section after the Skills section -->
-<section class="projects" id="projects">
-  <div class="content">
-    <div class="title"><span>My Projects</span></div>
-    <div class="projects-grid">
-      <!-- Loksambandh Project -->
-      <div class="project-card">
-        <div class="project-content">
-          <h3 class="project-title">Loksambandh</h3>
-          <p class="project-description">
-            A web application enabling citizens to report problems, share feedback and receive information from politicians, 
-            increasing transparency and responsiveness in governance.
-          </p>
-          <div class="project-tech">
-            <div class="tech-stack">
-              <span class="tech-tag">HTML</span>
-              <span class="tech-tag">CSS</span>
-              <span class="tech-tag">Bootstrap</span>
-              <span class="tech-tag">Spring Boot</span>
-              <span class="tech-tag">JPA</span>
-              <span class="tech-tag">MySQL</span>
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="background"></div>
+        <div class="container">
+            <div class="animated-text">
+                <span>Y</span>
+                <span>A</span>
+                <span>S</span>
+                <span>H</span>
+                <span>W</span>
             </div>
-          </div>
-          <div class="project-links">
-            <a href="https://sambandh.up.railway.app" class="project-link" target="_blank" rel="noopener noreferrer">
-              <i class="fas fa-external-link-alt"></i> Live Demo
-            </a>
-            <a href="https://github.com/yashwanth2223/loksambandh" class="project-link" target="_blank" rel="noopener noreferrer">
-              <i class="fab fa-github"></i> GitHub
-            </a>
-          </div>
+            <button class="know-more-btn" onclick="handleTransition()">Know More</button>
         </div>
-      </div>
-
-      <!-- Find You Project -->
-      <div class="project-card">
-        <div class="project-content">
-          <h3 class="project-title">Find You - CPMS</h3>
-          <p class="project-description">
-            A Campus Placement Management System that connects schools, students, and potential employers, 
-            streamlining the entire campus recruitment process.
-          </p>
-          <div class="project-tech">
-            <div class="tech-stack">
-              <span class="tech-tag">React</span>
-              <span class="tech-tag">Node.js</span>
-              <span class="tech-tag">Express</span>
-              <span class="tech-tag">MongoDB</span>
-              <span class="tech-tag">REST API</span>
-              <span class="tech-tag">GraphQL</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Dataviz Project -->
-      <div class="project-card">
-        <div class="project-content">
-          <h3 class="project-title">Dataviz</h3>
-          <p class="project-description">
-            A comprehensive website for visualizing datasets in various formats and types.
-          </p>
-          <div class="project-tech">
-            <div class="tech-stack">
-              <span class="tech-tag">Data Visualization</span>
-              <span class="tech-tag">Web Development</span>
-            </div>
-          </div>
-          <div class="project-links">
-            <a href="https://dataviz12.netlify.app/" class="project-link" target="_blank" rel="noopener noreferrer">
-              <i class="fas fa-external-link-alt"></i> Live Demo
-            </a>
-            <a href="https://github.com/yashwanth2223/dataviz" class="project-link" target="_blank" rel="noopener noreferrer">
-              <i class="fab fa-github"></i> GitHub
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- FashionScore Project -->
-      <div class="project-card">
-        <div class="project-content">
-          <h3 class="project-title">FashionScore</h3>
-          <p class="project-description">
-            An AI-powered web application that analyzes outfit images and provides instant feedback on fashion choices. 
-            Using Google's Gemini Pro Vision AI model.
-          </p>
-          <div class="project-tech">
-            <div class="tech-stack">
-              <span class="tech-tag">React</span>
-              <span class="tech-tag">Gemini API</span>
-              <span class="tech-tag">MySQL</span>
-              <span class="tech-tag">Node.js</span>
-              <span class="tech-tag">Bootstrap</span>
-            </div>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/yashwanth2223/fashionscore22" class="project-link" target="_blank" rel="noopener noreferrer">
-              <i class="fab fa-github"></i> GitHub
-            </a>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
-</section>
-<!-- Certifications Section begins -->
 
-<section class="certifications" id="certifications">
-  <div class="content">
-    <div class="title"><span>My Certifications</span></div>
-    <div class="certifications-grid">
+    <script>
+        // Disable right-click
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            return false;
+        });
 
-      <!-- AWS Certification -->
-      <div class="certification-card">
-        <a href="https://www.credly.com/badges/60b62ca6-1394-4732-813d-6b7a4b749fb7/public_url" target="_blank" rel="noopener noreferrer">
-          <img src="/Images/aws.jpg" alt="AWS Certification" class="cert-image" />
-          <div class="cert-content">
-            <h3 class="cert-title">AWS Cloud Practitioner</h3>
-            <p class="cert-issuer">Amazon Web Services</p>
-            <p class="cert-date">May 2024</p>
-          </div>
-        </a>
-      </div>
+        // Disable keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            // Prevent F12
+            if(e.key === 'F12') {
+                e.preventDefault();
+                return false;
+            }
+            // Prevent Ctrl+Shift+I (Chrome dev tools)
+            if(e.ctrlKey && e.shiftKey && e.key === 'I') {
+                e.preventDefault();
+                return false;
+            }
+            // Prevent Ctrl+Shift+J (Chrome dev tools)
+            if(e.ctrlKey && e.shiftKey && e.key === 'J') {
+                e.preventDefault();
+                return false;
+            }
+            // Prevent Ctrl+Shift+C (Chrome dev tools)
+            if(e.ctrlKey && e.shiftKey && e.key === 'C') {
+                e.preventDefault();
+                return false;
+            }
+            // Prevent Ctrl+U (View Source)
+            if(e.ctrlKey && e.key === 'U') {
+                e.preventDefault();
+                return false;
+            }
+            // Prevent Ctrl+S (Save Page)
+            if(e.ctrlKey && e.key === 'S') {
+                e.preventDefault();
+                return false;
+            }
+        });
 
-      <!-- Microsoft Certification -->
-      <div class="certification-card">
-        <a href="https://www.credly.com/badges/89448396-1b84-4d8b-9aea-c7b3c0201c81/public_url" target="_blank" rel="noopener noreferrer">
-          <img src="Images/redhat.jpg" alt="Redhat  Certification" class="cert-image" />
-          <div class="cert-content">
-            <h3 class="cert-title">Red Hat Certified Enterprise Application Developer</h3>
-            <p class="cert-issuer">Red Hat</p>
-            <p class="cert-date">September 2024</p>
-          </div>
-        </a>
-      </div>
+        // Disable drag and select
+        document.addEventListener('dragstart', function(e) {
+            e.preventDefault();
+            return false;
+        });
+        
+        document.addEventListener('selectstart', function(e) {
+            e.preventDefault();
+            return false;
+        });
 
-      <!-- Google Certification -->
-      <div class="certification-card">
-        <a href="#" target="_blank" rel="noopener noreferrer">
-          <img src="Images/servicenow.jpg" alt="Google Certification" class="cert-image" />
-          <div class="cert-content">
-            <h3 class="cert-title">Salesforce AI Associate</h3>
-            <p class="cert-issuer">Salesforce</p>
-            <p class="cert-date">October 2024</p>
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- Certifications Section ends -->
+        // Additional protection against dev tools
+        let devtools = function() {
+            console.clear();
+            console.log('%cStop!', 'color: red; font-size: 30px; font-weight: bold;');
+            console.log('%cThis is a protected website.', 'font-size: 16px;');
+        };
+        devtools();
+        setInterval(devtools, 100);
 
-<!-- Resume Section begins -->
-<section class="resume" id="resume">
-  <div class="content">
-    <div class="title"><span>My Resume</span></div>
-    <div class="resume-container">
-      <a href="https://bit.ly/yashw_resume_1" class="resume-button" target="_blank" rel="noopener noreferrer">
-        <i class="fas fa-file-alt"></i>
-        View My Resume
-      </a>
-    </div>
-  </div>
-</section>
-<!-- Resume Section ends -->
+        // Detect dev tools opening
+        let checkDevTools = function() {
+            const widthThreshold = window.outerWidth - window.innerWidth > 160;
+            const heightThreshold = window.outerHeight - window.innerHeight > 160;
+            if(widthThreshold || heightThreshold) {
+                document.body.innerHTML = 'Dev tools detected!';
+                return true;
+            }
+            return false;
+        };
+        setInterval(checkDevTools, 1000);
 
-    <!-- Services Section -->
-    <section class="services" id="services">
-      <div class="content">
-        <div class="title"><span>My Services</span></div>
-        <div class="boxes">
-          <div class="box">
-            <div class="icon">
-              <i class="fas fa-desktop"></i>
-            </div>
-            <div class="topic">Web Development</div>
-          </div>
-          <div class="box">
-            <div class="icon">
-              <i class="fas fa-paint-brush"></i>
-            </div>
-            <div class="topic">UX Design</div>
-          </div>
-        </div>
-      </div>
-    </section>
+        // Original loader code
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                const loader = document.querySelector('.loader-container');
+                const mainContent = document.querySelector('.main-content');
+                
+                loader.style.opacity = '0';
+                loader.style.transition = 'opacity 0.5s ease';
+                
+                mainContent.style.visibility = 'visible';
+                mainContent.style.opacity = '1';
+                
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 500);
+            }, 4000);
+        });
 
-    <!-- Contact Section -->
-   <!-- Update only the contact section in your HTML -->
-<!-- Updated Contact Section -->
-<section class="contact" id="contact">
-  <div class="content">
-    <div class="contact-container">
-      <h2 class="contact-title" style="color: white;">Connect with Me</h2>
-      <div class="contact-info">
-        <p class="contact-text">Let's connect and create something amazing together!</p>
-        <div class="contact-email">
-          <i class="fas fa-envelope"></i>
-          <a href="mailto:yashwanthreddy582@gmail.com">yashwanthreddy582@gmail.com</a>
-        </div>
-        <div class="contact-social">
-          <a href="https://www.reddit.com/user/yashwanth1325/" aria-label="Reddit" class="social-icon">
-            <i class="fab fa-reddit"></i>
-          </a>
-          <a href="https://www.linkedin.com/in/yashwanth-reddy-25870324b" aria-label="LinkedIn" class="social-icon">
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a href="https://www.instagram.com/_yashwanth_3.1" aria-label="Instagram" class="social-icon">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a href="https://github.com/yashwanth2223" aria-label="GitHub" class="social-icon">
-            <i class="fab fa-github"></i>
-          </a>
-          <a href="https://x.com/Yashw25" aria-label="X (formerly Twitter)" class="social-icon">
-            <i class="fab fa-x-twitter" style="color: white;"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-    <!-- Footer -->
-    <footer>
-      <div class="text">
-        <span>Created By <a href="#">Yashwanth</a> | © 2024 All Rights Reserved</span>
-      </div>
-    </footer>
-
-    <script src="script.js"></script>
-    <script src="js/animations.js"></script>
-
-  </body>
-</html>
+        // Original transition code
+        function handleTransition() {
+            const container = document.querySelector('.container');
+            const transition = document.querySelector('.page-transition');
+            const mainContent = document.querySelector('.main-content');
+            
+            container.classList.add('fade-out');
+            mainContent.style.opacity = '0';
+            
+            setTimeout(() => {
+                transition.classList.add('transition-active');
+            }, 300);
+            
+            setTimeout(() => {
+                window.location.href = 'portfolio.html';
+            }, 1000);
+        }
+    </script>
+</body>
+</html> 
