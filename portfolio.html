@@ -10,10 +10,12 @@
     <link rel="stylesheet" href="css/section.css" />
     <link rel="stylesheet" href="css/variables.css" />
     <link rel="stylesheet" href="css/projects.css">
-    
+    <link rel="stylesheet" href="css/contact.css">
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   </head>
   <body>
     <!-- Navigation -->
@@ -324,39 +326,45 @@
     </section>
 
     <!-- Contact Section -->
-   <!-- Update only the contact section in your HTML -->
-<!-- Updated Contact Section -->
-<section class="contact" id="contact">
-  <div class="content">
-    <div class="contact-container">
-      <h2 class="contact-title" style="color: white;">Connect with Me</h2>
-      <div class="contact-info">
-        <p class="contact-text">Let's connect and create something amazing together!</p>
-        <div class="contact-email">
-          <i class="fas fa-envelope"></i>
-          <a href="mailto:yashwanthreddy582@gmail.com">yashwanthreddy582@gmail.com</a>
-        </div>
-        <div class="contact-social">
-          <a href="https://www.reddit.com/user/yashwanth1325/" aria-label="Reddit" class="social-icon">
-            <i class="fab fa-reddit"></i>
-          </a>
-          <a href="https://www.linkedin.com/in/yashwanth-reddy-25870324b" aria-label="LinkedIn" class="social-icon">
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a href="https://www.instagram.com/_yashwanth_3.1" aria-label="Instagram" class="social-icon">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a href="https://github.com/yashwanth2223" aria-label="GitHub" class="social-icon">
-            <i class="fab fa-github"></i>
-          </a>
-          <a href="https://x.com/Yashw25" aria-label="X (formerly Twitter)" class="social-icon">
-            <i class="fab fa-x-twitter" style="color: white;"></i>
-          </a>
+    <section class="contact" id="contact">
+      <div class="content">
+        <div class="contact-container">
+          <h2 class="contact-title" style="color: white;">Connect with Me</h2>
+          <div class="contact-info">
+            <p class="contact-text">Let's connect and create something amazing together!</p>
+            
+            <!-- Contact Form -->
+            <form id="contactForm" class="contact-form">
+              <div class="form-group">
+                <input type="email" id="email" name="email" placeholder="Your Email" required class="form-input">
+              </div>
+              <div class="form-group">
+                <textarea id="message" name="message" placeholder="Your Message" required class="form-input"></textarea>
+              </div>
+              <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+
+            <div class="contact-social">
+              <a href="https://www.reddit.com/user/yashwanth1325/" aria-label="Reddit" class="social-icon">
+                <i class="fab fa-reddit"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/yashwanth-reddy-25870324b" aria-label="LinkedIn" class="social-icon">
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a href="https://www.instagram.com/_yashwanth_3.1" aria-label="Instagram" class="social-icon">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="https://github.com/yashwanth2223" aria-label="GitHub" class="social-icon">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="https://x.com/Yashw25" aria-label="X (formerly Twitter)" class="social-icon">
+                <i class="fab fa-x-twitter" style="color: white;"></i>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <!-- Footer -->
     <footer>
@@ -367,6 +375,6 @@
 
     <script src="script.js"></script>
     <script src="js/animations.js"></script>
-
+    <script src="js/contact.js"></script>
   </body>
 </html>
