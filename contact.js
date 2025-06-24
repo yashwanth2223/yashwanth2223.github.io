@@ -19,8 +19,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const submitBtn = contactForm.querySelector('.submit-btn');
 
+    // Prevent form from showing in URL on refresh
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+    }
+
     contactForm.addEventListener('submit', async function(e) {
         e.preventDefault();
+        e.stopPropagation();
         
         // Disable submit button and show loading state
         submitBtn.disabled = true;
@@ -45,14 +51,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Send email using EmailJS
             const response = await emailjs.send(
-                'service_eamdm9m',    // Replace with your EmailJS service ID
-                'template_p5s5bid',   // Replace with your EmailJS template ID
+                'service_eamdm9m',
+                'template_p5s5bid',
                 templateParams
             );
 
             console.log('SUCCESS!', response.status, response.text);
             alert('Message sent successfully!');
+            
+            // Clear form fields
             contactForm.reset();
+            
+            // Clear URL parameters if any
+            if (window.history.replaceState) {
+                window.history.replaceState(null, null, window.location.pathname + window.location.hash);
+            }
 
         } catch (error) {
             console.error('FAILED...', error);
@@ -63,4 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
             submitBtn.textContent = 'Send Message';
         }
     });
+
+    // Clear form data on page load
+    contactForm.reset();
 }); 
